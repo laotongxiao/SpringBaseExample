@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--abstract="true"表示只是定义的bean不去实例化的bean-->
+    <bean class="com.test01.ParentClass" id="parentClass" abstract="true">
+        <property name="attribute01" value="attribute01"/>
+        <property name="attribute02" value="attribute02"/>
+        <property name="attribute03" value="attribute03"/>
+    </bean>
+    <bean class="com.test01.Class01" id="class01" parent="parentClass">
+        <property name="attribute04" value="attribute04"/>
+        <property name="attribute05" value="attribute05"/>
+    </bean>
+    <bean class="com.test01.Class02" id="class02" parent="parentClass">
+        <property name="attribute07" value="attribute07"/>
+        <property name="attribute08" value="attribute08"/>
+    </bean>
+    <!--第二种方法-->
+    <bean id="parentClass02" abstract="true">
+        <property name="attribute01" value="attribute01"/>
+        <property name="attribute02" value="attribute02"/>
+        <property name="attribute03" value="attribute03"/>
+    </bean>
+    <bean class="com.test02.ClassA" id="classA" parent="parentClass02">
+        <property name="attribute04" value="attribute04"/>
+        <property name="attribute05" value="attribute05"/>
+    </bean>
+    <bean class="com.test02.ClassB" id="classB" parent="parentClass02">
+        <property name="attribute07" value="attribute07"/>
+        <property name="attribute08" value="attribute08"/>
+    </bean>
+</beans>

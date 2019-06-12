@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id = "otherBean03" class="com.test03.OtherBean03"/>
+    <bean id = "bean03" class="com.test03.Bean03">
+        <property name="otherBean03List">
+            <list>
+                <ref bean="otherBean03"/>
+                <ref bean="otherBean03"/>
+            </list>
+        </property>
+        <property name="nam3List">
+            <list>
+                <value>hello name3</value>
+                <value>word name3</value>
+            </list>
+        </property>
+
+        <property name="otherBean03Map">
+            <map>
+                <entry key-ref="otherBean03" value-ref="otherBean03"/>
+                <entry key-ref="otherBean03" value-ref="otherBean03"/>
+            </map>
+        </property>
+        <property name="name3Map">
+            <map>
+                <entry key="name3key" value="name3value"/>
+                <entry key="name3key" value="name3value"/>
+            </map>
+        </property>
+
+        <property name="otherBean03Set">
+            <set>
+                <ref bean="otherBean03"/>
+                <ref bean="otherBean03"/>
+            </set>
+        </property>
+        <property name="name3Set">
+            <set>
+                <value>hello name3</value>
+                <value>word name3</value>
+            </set>
+        </property>
+
+        <property name="otherBean03Properties">
+            <props>
+                <prop key="aaaotherBean03">aaaotherBean03</prop>
+                <prop key="bbbotherBean03">bbbotherBean03</prop>
+            </props>
+        </property>
+        <property name="name3Properties">
+            <props>
+                <prop key="aaaname3">aaaname3</prop>
+                <prop key="bbbname3">bbbname3</prop>
+            </props>
+        </property>
+
+        <property name="otherBean03null">
+            <null/>
+        </property>
+    </bean>
+</beans>

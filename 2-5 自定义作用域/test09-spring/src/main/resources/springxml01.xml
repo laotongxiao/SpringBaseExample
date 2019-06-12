@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--实现二例作用域模型-->
+    <bean class="com.test01.MyScope" id = "myScope"/>
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="myScope" value-ref="myScope"/>
+            </map>
+        </property>
+    </bean>
+    <bean class="com.test01.Bean01" id = "bean01" scope="myScope"/>
+
+    <!--实现每个线程一个作用域模型-->
+    <bean class="com.test01.MyScope" id = "myScope02"/>
+    <bean class="org.springframework.context.support.SimpleThreadScope" id="simpleThreadScope"/>
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="myScope02" value-ref="myScope02"/>
+                <entry key="simpleThreadScope" value-ref="simpleThreadScope"/>
+            </map>
+        </property>
+    </bean>
+    <bean class="com.test01.Bean01" id = "bean02" scope="simpleThreadScope"/>
+</beans>

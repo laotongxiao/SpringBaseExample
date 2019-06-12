@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id = "bean02_b" class="com.test02.Bean01_b" scope="prototype"/>
+    <bean id="bean01_a" class="com.test02.Bean01_a"  scope="singleton">
+       <lookup-method name="creadBean01_b" bean="bean02_b"/>
+    </bean>
+</beans>

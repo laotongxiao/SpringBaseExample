@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--1.通过默认构造方法实例化Bean-->
+    <bean id = "test01Bean" class="com.test01.Bean01"/>
+
+    <!--2.通过静态工厂方法实例化Bean-->
+    <bean id = "test02Bean" class="com.test01.Bean02Factory02" factory-method = "getBean02"/>
+
+    <!--3.通过实例工厂方法实例化Bean-->
+    <bean id = "test01Factory03" class="com.test01.Bean03Factory03"/>
+    <bean id="test03Bean" class="com.test01.Bean03" factory-bean = "test01Factory03" factory-method="getBean03"/>
+
+    <!--4.Bean的别名-->
+    <bean id = "test04Bean" class="com.test01.Bean04" name="beanA1,beanA2"/>
+    <alias name="test04Bean" alias="beanA3"/>
+
+
+</beans>
